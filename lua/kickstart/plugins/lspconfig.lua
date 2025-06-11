@@ -208,7 +208,35 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {},
+        zls = {
+  settings = {
+    zls = {
+      -- Set the path to the Zig executable.
+      -- If `zig` is in your PATH, this can be `nil`.
+      zig_exe_path = nil,
+
+      -- (Optional) Set the path to Zig's standard library.
+      -- `zls` usually finds this automatically if `zig` is in your PATH.
+      -- Example: "/path/to/zig/lib"
+      zig_lib_path = nil,
+
+      -- Enable or disable inlay hints for parameter names and types.
+      inlay_hints_show_param_names = true,
+      inlay_hints_hide_redundant_param_names = true,
+      inlay_hints_show_type = true,
+
+      -- Enable snippets provided by zls.
+      enable_snippets = true,
+
+      -- Enable semantic highlighting tokens (requires a compatible theme).
+      enable_semantic_tokens = true,
+
+      -- Style for warnings. Can be "colored" or "minimal".
+      warn_style = "colored",
+    },
+  },
+},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
@@ -253,6 +281,8 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'clangd',
+        'zls'
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
