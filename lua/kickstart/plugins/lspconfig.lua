@@ -210,33 +210,34 @@ return {
       local servers = {
         clangd = {},
         zls = {
-  settings = {
-    zls = {
-      -- Set the path to the Zig executable.
-      -- If `zig` is in your PATH, this can be `nil`.
-      zig_exe_path = nil,
+          settings = {
+            zls = {
+              -- Set the path to the Zig executable.
+              -- If `zig` is in your PATH, this can be `nil`.
+              zig_exe_path = nil,
 
-      -- (Optional) Set the path to Zig's standard library.
-      -- `zls` usually finds this automatically if `zig` is in your PATH.
-      -- Example: "/path/to/zig/lib"
-      zig_lib_path = nil,
+              -- (Optional) Set the path to Zig's standard library.
+              -- `zls` usually finds this automatically if `zig` is in your PATH.
+              -- Example: "/path/to/zig/lib"
+              zig_lib_path = nil,
 
-      -- Enable or disable inlay hints for parameter names and types.
-      inlay_hints_show_param_names = true,
-      inlay_hints_hide_redundant_param_names = true,
-      inlay_hints_show_type = true,
+              -- Enable or disable inlay hints for parameter names and types.
+              inlay_hints_show_param_names = true,
+              inlay_hints_hide_redundant_param_names = true,
+              inlay_hints_show_type = true,
 
-      -- Enable snippets provided by zls.
-      enable_snippets = true,
+              -- Enable snippets provided by zls.
+              enable_snippets = true,
 
-      -- Enable semantic highlighting tokens (requires a compatible theme).
-      enable_semantic_tokens = true,
+              -- Enable semantic highlighting tokens (requires a compatible theme).
+              enable_semantic_tokens = true,
 
-      -- Style for warnings. Can be "colored" or "minimal".
-      warn_style = "colored",
-    },
-  },
-},
+              -- Style for warnings. Can be "colored" or "minimal".
+              warn_style = 'colored',
+            },
+          },
+        },
+        csharp_ls = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
@@ -282,7 +283,7 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'clangd',
-        'zls'
+        'zls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

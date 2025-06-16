@@ -59,21 +59,21 @@ return {
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'default',
         ['<C-Space>'] = {},
-        ['<D-.>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<A-.>'] = { 'show', 'show_documentation', 'hide_documentation' },
         -- ['<C-e>'] = { 'hide' },
         -- ['<C-y>'] = { 'select_and_accept' },
-    
+
         -- ['<Up>'] = { 'select_prev', 'fallback' },
         -- ['<Down>'] = { 'select_next', 'fallback' },
         -- ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
         -- ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
-    
+
         -- ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
         -- ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
-    
+
         -- ['<Tab>'] = { 'snippet_forward', 'fallback' },
         -- ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
-    
+
         -- ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
@@ -89,7 +89,7 @@ return {
       completion = {
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        documentation = { auto_show = true, auto_show_delay_ms = 500 },
       },
 
       sources = {
